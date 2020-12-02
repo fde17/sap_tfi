@@ -1,12 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import antd from './antd.css';
 import reportWebVitals from './reportWebVitals';
+import Routes from './routes';
+import { createBrowserHistory } from "history";
+import { Route, Switch } from 'react-router';
+import {BrowserRouter as Router} from "react-router-dom";
+
+const customHistory = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router history={customHistory}>
+      <Routes />
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -15,3 +23,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+export default customHistory;

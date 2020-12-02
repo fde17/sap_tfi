@@ -1,126 +1,124 @@
 import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import { Form, Input, Button, Checkbox } from 'antd';
-import Tito from './HeaderEjemplo'
 
 const { Header, Content, Footer,} = Layout;
 
 const layout = {
-  labelCol: {
+    labelCol: {
     span: 0,
-  },
-  wrapperCol: {
+    },
+    wrapperCol: {
     span: 0,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
+    },
+    };
+    const tailLayout = {
+    wrapperCol: {
     offset: 8,
     span: 16,
-  },
-};
+    },
+    };
 
-  const onFinish = (values) => {
+    const onFinish = (values) => {
     console.log('Success:', values);
-  };
+    };
 
-  const onFinishFailed = (errorInfo) => {
+    const onFinishFailed = (errorInfo) => {
     console.log('Failed:', errorInfo);
-  };
+    };
 
 
 
-class App extends React.Component {
-  state = {
+    class Login extends React.Component {
+    state = {
     collapsed: false,
-  };
+    };
 
-  onCollapse = collapsed => {
+    onCollapse = collapsed => {
     console.log(collapsed);
     this.setState({ collapsed });
-  };
-  
-  
+    };
 
-  render() {
+
+
+    render() {
 
     return (
-      <Layout style={{ minHeight: '100vh' }}>        
+        <Layout style={{ minHeight: '100vh' }}>
         <Layout className="site-layout"></Layout>
-        <Tito></Tito>
         <div class="container">
-          <main class="content">
+            <main class="content">
             <login class="login">
             <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Bienvenido</Breadcrumb.Item>
-              <Breadcrumb.Item>Login</Breadcrumb.Item>
+                <Breadcrumb.Item>Bienvenido</Breadcrumb.Item>
+                <Breadcrumb.Item>Login</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ width: 500, padding: 24, minHeight: 360 }}>
             <Form
-      {...layout}
-      name="basic"
-      initialValues={{
+        {...layout}
+        name="basic"
+        initialValues={{
         remember: true,
-      }}
-      onFinish={onFinish}
-      onFinishFailed={onFinishFailed}
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
     >
-      <Form.Item
+        <Form.Item
         label="Nombre de usuario"
         name="username"
         rules={[
-          {
+            {
             required: true,
             message: 'Ingresá tu nombre de usuario',
-          },
+            },
         ]}
-      >
+        >
         <Input />
-      </Form.Item>
+        </Form.Item>
 
-      <Form.Item
+        <Form.Item
         label="Contraseña"
         name="password"
         rules={[
-          {
+            {
             required: true,
             message: 'Ingresá tu contraseña',
-          },
+            },
         ]}
-      >
+        >
         <Input.Password />
-      </Form.Item>
+        </Form.Item>
 
-      <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+        <Form.Item {...tailLayout} name="remember" valuePropName="checked">
         <Checkbox>Recordarme</Checkbox>
-      </Form.Item>
+        </Form.Item>
 
-      <Form.Item {...tailLayout}>
+        <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Ingresar
+            Ingresar
         </Button>
-      </Form.Item>
+        </Form.Item>
     </Form>
             </div>
-          </Content>
+            </Content>
             </login>
 
-                      </main>
+                        </main>
 
-          <aside class="sidebar">
+            <aside class="sidebar">
             <div>
             <img src="http://lorempixel.com/400/200/city/" alt="" ></img>
-              <p>Go Beauty! El mejor servicio garantizado</p>
+                <p>Go Beauty! El mejor servicio garantizado</p>
             </div>
-          </aside>
+            </aside>
 
 
         <div class="related-post">
             <h1>En la comodidad de tu casa</h1>
         </div>
         <div class="related-post">
-        <h1>Cuando quieras. Como quieras</h1> 
+        <h1>Cuando quieras. Como quieras</h1>
         </div>
         <div class="related-post">
         <h1>El mejor precio del mercado</h1>
@@ -130,9 +128,9 @@ class App extends React.Component {
 
         </div>
 
-      </Layout>
+        </Layout>
     );
-  }
+    }
 }
 
-export default App;
+export default Login;
