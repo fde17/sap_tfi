@@ -5,12 +5,12 @@ class App extends React.Component {
   render () {
     return (
       <div id='appContainer' className='appContainerGlobal'>
-            <Header mensaje="Registrarse" />
+            <Header/>
             {this.props.children}
           {/* aca iria el footer */}
       </div>
-    )
+    );
   }
 }
 
-export default App;
+export default App; 
