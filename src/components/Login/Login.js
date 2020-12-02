@@ -1,8 +1,9 @@
 import React from 'react';
 import { Layout, Breadcrumb } from 'antd';
 import { Form, Input, Button, Checkbox } from 'antd';
+import { Link } from 'react-router-dom';
 
-const { Header, Content, Footer,} = Layout;
+const { Content, Footer,} = Layout;
 
 const layout = {
     labelCol: {
@@ -95,9 +96,7 @@ const layout = {
         </Form.Item>
 
         <Form.Item {...tailLayout}>
-        <Button type="primary" htmlType="submit">
-            Ingresar
-        </Button>
+        <Button type="primary" htmlType="submit"><Link to="/home">Ingresar</Link></Button>
         </Form.Item>
     </Form>
             </div>

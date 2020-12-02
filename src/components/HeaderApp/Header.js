@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layout } from 'antd';
+import { AutoComplete, Layout } from 'antd';
 import { Button } from 'antd';
 
 const { Header} = Layout;
