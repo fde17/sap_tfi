@@ -53,7 +53,8 @@ class App extends React.Component {
             <login class="login">
             <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
-              <Breadcrumb.Item>Bienvenido</Breadcrumb.Item>
+              <Breadcrumb.Item>Welcome</Breadcrumb.Item>git status
+              
               <Breadcrumb.Item>Login</Breadcrumb.Item>
             </Breadcrumb>
             <div className="site-layout-background" style={{ width: 500, padding: 24, minHeight: 360 }}>
