@@ -45,17 +45,17 @@ const layout = {
     render() {
 
     return (
-        <Layout style={{ minHeight: '100vh' }}>
-        <Layout className="site-layout"></Layout>
-        <div class="container">
-            <main class="content">
-            <login class="login">
-            <Content style={{ margin: '0 16px' }}>
-            <Breadcrumb style={{ margin: '16px 0' }}>
-                <Breadcrumb.Item>Bienvenido</Breadcrumb.Item>
-                <Breadcrumb.Item>Login</Breadcrumb.Item>
-            </Breadcrumb>
-            <div className="site-layout-background" style={{ width: 500, padding: 24, minHeight: 360 }}>
+        <Layout style={{ minHeight: '75vh' }}>
+            <Layout className="site-layout"></Layout>
+                <div class="container">
+                    <main class="content">
+                        <login class="login">
+                            <Content style={{ margin: '0 16px' }}>
+                                <Breadcrumb style={{ margin: '16px 0' }}>
+                                    <Breadcrumb.Item>Bienvenido</Breadcrumb.Item>
+                                    <Breadcrumb.Item>Login</Breadcrumb.Item>
+                                </Breadcrumb>
+            <div className="site-layout-background" style={{ width: 500, padding: 20, minHeight: 360 }}>
             <Form
         {...layout}
         name="basic"
@@ -105,13 +105,7 @@ const layout = {
 
                         </main>
 
-            <aside class="sidebar">
-            <div>
-            <img src="http://lorempixel.com/400/200/city/" alt="" ></img>
-                <p>Go Beauty! El mejor servicio garantizado</p>
-            </div>
-            </aside>
-
+            
 
         <div class="related-post">
             <h1>En la comodidad de tu casa</h1>
@@ -123,9 +117,10 @@ const layout = {
         <h1>El mejor precio del mercado</h1>
         </div>
 
-        <Footer class="footer" style={{ textAlign: 'center' }}>Go Beauty ©2020</Footer>
+        
 
         </div>
+        <Footer class="footer" style={{ color: 'white', height: 100, backgroundColor: 'black', textAlign: 'center' }}>Go Beauty ©2020</Footer>
 
         </Layout>
     );

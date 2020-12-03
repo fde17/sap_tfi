@@ -31,13 +31,13 @@ code {
 /* CONTAINER */
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1000px;
     margin: 1.6em auto;
     display: grid;
     gap: 1.6em;
     /* grid-template-columns: repeat(4, 1fr) 3%; */
-    grid-template-columns: repeat(5, 1fr); 
+    grid-template-columns: repeat(3, 1fr); 
 }
 .singup {
     width: 90%;
@@ -45,18 +45,19 @@ code {
     margin: 0.5em auto;
     display: grid;
     gap: 1.6em; 
-    rid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
 }
 .container>.header, .container>.content, .container>.sidebar, .container>.footer, .container>div {
-    background: #fff;
+    background: #f0f2f5;
     padding: 20px;
-    border: 1px solid #000000;
+    border: 1px solid #f0f2f5;
     color: #ffffff;
 }
 
 .container>.header, .container>.footer {
+    
     grid-column: 1/-1;
-    background-color: #1e272e;
+    background-color: #000000;
     color: #ffffff;
 }
 
@@ -66,10 +67,12 @@ code {
 }
 
 .content>.login {
-    background: #ffffff;
+    background: #f0f2f5;
     padding: 20px;
-    margin-top: 5px;
-    color: #000000
+    margin-top: 50px;
+    color: #000000;
+    border: #f0f2f5;
+    grid-template-columns: repeat(5, 1fr); 
 }
 
 .content .article h1,
@@ -95,19 +98,20 @@ code {
 
 .container>.related-post {
     background: #ffffff;
-    color: #350d94;
-    height: 180px;
+    color: #1890ff;
+    height: 275px;
     ;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.5s ease;
+    font-size: 3.5ch;
 }
 
 .container>.related-post:hover {
     cursor: pointer;
     color: #ffffff;
-    background: #350d94;
+    background: #1890ff;
 
 }
 
