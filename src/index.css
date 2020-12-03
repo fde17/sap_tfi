@@ -37,9 +37,16 @@ code {
     display: grid;
     gap: 1.6em;
     /* grid-template-columns: repeat(4, 1fr) 3%; */
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); 
 }
-
+.singup {
+    width: 90%;
+    max-width: 800px;
+    margin: 0.5em auto;
+    display: grid;
+    gap: 1.6em; 
+    rid-template-columns: repeat(1, 1fr);
+}
 .container>.header, .container>.content, .container>.sidebar, .container>.footer, .container>div {
     background: #fff;
     padding: 20px;
