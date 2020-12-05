@@ -102,6 +102,7 @@ const layout = {
             </div>
             </Content>
             </login>
+            
 
                         </main>
 
@@ -111,6 +112,7 @@ const layout = {
             <h1>En la comodidad de tu casa</h1>
         </div>
         <div class="related-post">
+            
         <h1>Cuando quieras. Como quieras</h1>
         </div>
         <div class="related-post">
