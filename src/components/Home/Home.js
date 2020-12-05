@@ -15,7 +15,7 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-const { Footer,} = Layout;
+const { Content, Footer,} = Layout;
 
 class Home extends Component {
 
@@ -26,11 +26,11 @@ class Home extends Component {
                 <Layout className = "site-layout" ></Layout>
                 <div class="container">
                   <main class="content">
-                   {/* <landing class="landing">
+                   <landing class="landing">
                     <Content style={{ borderColor: 'red', margin: '0 16px' }}>
                        Landing
                     </Content>
-                   </landing> */}
+                   </landing>
                    <searchbox class="searchbox">
                    <Select defaultValue="Servicio de barbería" style={{ width: 240 }} onChange={handleChange}>
       <Option value="Servicio de barbería">Servicio de barbería</Option>
@@ -53,9 +53,8 @@ class Home extends Component {
       />
     }
     actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
+        <Button type="primary">Seleccionar</Button>,
+        <Button>Ver perfil</Button>,
     ]}
   >
     <Meta
