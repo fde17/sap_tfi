@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { Select, Button, TimePicker, DatePicker, Space } from 'antd';
+import { Card, Avatar, Select, Button, TimePicker, DatePicker, Space } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
+const { Meta } = Card;
 const { RangePicker } = TimePicker;
 const { Option } = Select;
 
@@ -13,7 +15,7 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-const { Content, Footer,} = Layout;
+const { Footer,} = Layout;
 
 class Home extends Component {
 
@@ -42,7 +44,66 @@ class Home extends Component {
                         <Button type="primary">Buscar</Button>
                    </searchbox>
                    <results class="results">
-                       Resultados
+                   <Card
+    style={{ width: 300 }}
+    cover={
+      <img
+        alt="Barbero"
+        src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg"
+      />
+    }
+    actions={[
+      <SettingOutlined key="setting" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" />,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhe_WQzorfVFJOrUD-6efvTYZrm5JchNdeA&usqp=CAU" />}
+      title="Nico Delñoca"
+      description="Barbero junior"
+    />
+  </Card>,
+  <Card
+    style={{ width: 300 }}
+    cover={
+      <img
+        alt="Barbero"
+        src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg"
+      />
+    }
+    actions={[
+      <SettingOutlined key="setting" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" />,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhe_WQzorfVFJOrUD-6efvTYZrm5JchNdeA&usqp=CAU" />}
+      title="Javier Laley"
+      description="Barbero senior"
+    />
+  </Card>,
+  <Card
+    style={{ width: 300 }}
+    cover={
+      <img
+        alt="Barbero"
+        src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg"
+      />
+    }
+    actions={[
+      <SettingOutlined key="setting" />,
+      <EditOutlined key="edit" />,
+      <EllipsisOutlined key="ellipsis" />,
+    ]}
+  >
+    <Meta
+      avatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhe_WQzorfVFJOrUD-6efvTYZrm5JchNdeA&usqp=CAU" />}
+      title="Sergio Panqueque"
+      description="Barbero semisenior"
+    />
+  </Card>,
                    </results>
                   </main>
                 </div>  
