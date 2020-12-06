@@ -96,14 +96,14 @@ const tailFormItemLayout = {
           }}
           scrollToFirstError
           > 
-        <h1>Por favor, complete los campos requeridos para registrarse</h1>
+        <h1>Por favor, complete los campos requeridos para registrarse como cliente</h1>
 
         <Form.Item
         name="name"
         label="Nombre"
         rules={[
           {
-            type: 'firstname',
+            
             message: 'The input is not valid name',
           },
           {
@@ -119,7 +119,6 @@ const tailFormItemLayout = {
             label="Apellido"
             rules={[
               {
-                type: 'lastnome',
                 message: 'The input is not valid lastname',
               },
               {
