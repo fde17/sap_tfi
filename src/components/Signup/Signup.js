@@ -10,26 +10,7 @@ import {
   Button,
   AutoComplete,
 } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import { Layout, Breadcrumb } from 'antd';
-import FormItem from 'antd/lib/form/FormItem';
-import FormItemLabel from 'antd/lib/form/FormItemLabel';
-
-const { Content, Footer,} = Layout;
-const layout = {
-  labelCol: {
-  span: 0,
-  },
-  wrapperCol: {
-  span: 0,
-  },
-  };
-  const tailLayout = {
-  wrapperCol: {
-  offset: 8,
-  span: 16,
-  },
-  };
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -115,13 +96,7 @@ const tailFormItemLayout = {
           }}
           scrollToFirstError
           > 
-        <FormItemLabel
-            name="title"
-            label="Por favor, complete los campos requeridos para registrarse"
-           
-          >
-            <Input />
-        </FormItemLabel>
+        <h1>Por favor, complete los campos requeridos para registrarse</h1>
 
         <Form.Item
         name="name"

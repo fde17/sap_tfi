@@ -7,11 +7,21 @@ const { Content, Footer,} = Layout;
 
 const layout = {
     labelCol: {
-    span: 0,
-    },
-    wrapperCol: {
-    span: 0,
-    },
+        xs: {
+          span: 24,
+        },
+        sm: {
+          span: 8,
+        },
+      },
+      wrapperCol: {
+        xs: {
+          span: 24,
+        },
+        sm: {
+          span: 16,
+        },
+      },
     };
     const tailLayout = {
     wrapperCol: {
@@ -56,6 +66,7 @@ const layout = {
                                     <Breadcrumb.Item>Login</Breadcrumb.Item>
                                 </Breadcrumb>
             <div className="site-layout-background" style={{ width: 500, padding: 20, minHeight: 360 }}>
+                
             <Form
         {...layout}
         name="basic"
