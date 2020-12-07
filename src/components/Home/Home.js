@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { Card, Avatar, Select, Button, TimePicker, DatePicker, Space } from 'antd';
+import { Rate, Card, Avatar, Button,} from 'antd';
+// import {Select, TimePicker, DatePicker, Space } from 'antd';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 const { Meta } = Card;
-const { RangePicker } = TimePicker;
-const { Option } = Select;
+// const { RangePicker } = TimePicker;
+// const { Option } = Select;
 
-function handleChange(value) {
-  console.log(`selected ${value}`);
-}
+// function handleChange(value) {
+//   console.log(`selected ${value}`);
+// }
 
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
+// function onChange(date, dateString) {
+//   console.log(date, dateString);
+// }
 
 const {Content} = Layout;
 
@@ -31,7 +32,7 @@ class Home extends Component {
                        Landing
                     </Content>
                    </landing>
-                   <searchbox class="searchbox">
+                   {/* <searchbox class="searchbox">
                    <Select defaultValue="Servicio de barbería" style={{ width: 240 }} onChange={handleChange}>
       <Option value="Servicio de barbería">Servicio de barbería</Option>
       <Option value="Servicio de uñas">Servicio de uñas</Option>
@@ -42,7 +43,7 @@ class Home extends Component {
                         </Space>,
                         <RangePicker />
                         <Button type="primary">Buscar</Button>
-                   </searchbox>
+                   </searchbox> */}
                    <results class="results">
                    <Card
     style={{ width: 300 }}
@@ -62,6 +63,7 @@ class Home extends Component {
       title="Nico Delñoca"
       description="Barbero junior"
     />
+    <Rate disabled defaultValue={2} />
   </Card>,
   <Card
     style={{ width: 300 }}
@@ -82,6 +84,7 @@ class Home extends Component {
       title="Javier Laley"
       description="Barbero senior"
     />
+    <Rate disabled defaultValue={3} />
   </Card>,
   <Card
     style={{ width: 300 }}
@@ -102,6 +105,7 @@ class Home extends Component {
       title="Sergio Panqueque"
       description="Barbero semisenior"
     />
+    <Rate disabled defaultValue={5} />
   </Card>,
                    </results>
                   </main>
