@@ -34,10 +34,18 @@ code {
     width: 100%;
     max-width: 1000px;
     margin: 1.6em auto;
-    display: grid;
+    
     gap: 1.6em;
-    /* grid-template-columns: repeat(4, 1fr) 3%; */
-    grid-template-columns: repeat(3, 1fr); 
+    /* grid-template-columns: repeat(4, 1fr) 3%;
+     */
+     
+}
+
+.imagen-login{
+    float: right; 
+    margin: 50px 300px 15px 15px;
+    width:100px
+
 }
 .singup {
     width: 90%;
@@ -99,8 +107,8 @@ code {
 .container>.related-post {
     background: #ffffff;
     color: #1890ff;
-    height: 275px;
-    ;
+    height: 200px;
+    
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from '../HeaderApp'
+import Footer from '../FooterApp'
 
 class App extends React.Component {
   render () {
@@ -7,7 +8,7 @@ class App extends React.Component {
       <div id='appContainer' className='appContainerGlobal'>
             <Header/>
             {this.props.children}
-          {/* aca iria el footer */}
+          <Footer/>
       </div>
     );
   }

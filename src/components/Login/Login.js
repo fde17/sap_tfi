@@ -3,7 +3,7 @@ import { Layout, Breadcrumb } from 'antd';
 import { Form, Input, Button, Checkbox } from 'antd';
 import { Link } from 'react-router-dom';
 
-const { Content, Footer,} = Layout;
+const { Content} = Layout;
 
 const layout = {
     labelCol: {
@@ -56,17 +56,23 @@ const layout = {
 
     return (
         <Layout style={{ minHeight: '75vh' }}>
+            
             <Layout className="site-layout"></Layout>
                 <div class="container">
+                <element className = "imagen-login">
+                  <img src="/login.png"/>
+                </element>
                     <main class="content">
                         <login class="login">
+                          
                             <Content style={{ margin: '0 16px' }}>
+                            
                                 <Breadcrumb style={{ margin: '16px 0' }}>
                                     <Breadcrumb.Item>Bienvenido</Breadcrumb.Item>
                                     <Breadcrumb.Item>Login</Breadcrumb.Item>
                                 </Breadcrumb>
             <div className="site-layout-background" style={{ width: 500, padding: 20, minHeight: 360 }}>
-                
+               
             <Form
         {...layout}
         name="basic"
@@ -133,7 +139,7 @@ const layout = {
         
 
         </div>
-        <Footer class="footer" style={{ color: 'white', height: 100, backgroundColor: 'black', textAlign: 'center' }}>Go Beauty ©2020</Footer>
+        
 
         </Layout>
     );

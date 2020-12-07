@@ -15,7 +15,7 @@ function onChange(date, dateString) {
   console.log(date, dateString);
 }
 
-const { Content, Footer,} = Layout;
+const {Content} = Layout;
 
 class Home extends Component {
 
@@ -106,7 +106,6 @@ class Home extends Component {
                    </results>
                   </main>
                 </div>  
-                <Footer class="footer" style={{ color: 'white', height: 100, backgroundColor: 'black', textAlign: 'center' }}>Go Beauty ©2020</Footer>            
             </Layout>
         );
     }

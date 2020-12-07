@@ -2,15 +2,12 @@ import React, { useState,Component } from 'react';
 import {
   Form,
   Input,
-  Tooltip,
   Select,
-  Row,
-  Col,
   Checkbox,
   Button,
   AutoComplete,
 } from 'antd';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 
 const { Option } = Select;
 const AutoCompleteOption = AutoComplete.Option;
@@ -279,10 +276,8 @@ const tailFormItemLayout = {
           </Form.Item>
         </Form>
         </div>
-        
         </Layout>
         );
     }
-
 
 export default SignupPartner;
