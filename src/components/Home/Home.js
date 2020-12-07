@@ -49,8 +49,8 @@ class Home extends Component {
                 <div class="container">
                   <main class="content">
                    <landing class="landing">
-                    <Content style={{ borderColor: 'red', margin: '0 16px' }}>
-                       Landing
+                    <Content style={{ borderColor: 'red', margin: '0 16px',color:"black" }}>
+                      <h1>Listado de prestadores</h1>
                     </Content>
                    </landing>
                    {/* <searchbox class="searchbox">
@@ -72,7 +72,7 @@ class Home extends Component {
               name: 'Lily',
             },
             {
-              name: 'Lily',
+              name: 'Juan',
             },
           ]}
           bordered
@@ -80,14 +80,19 @@ class Home extends Component {
             <List.Item
               key={item.id}
               actions={[
-                <a onClick={this.showDrawer} key={`a-${item.id}`}>
+                <a>
+                <Button type="primary" htmlType="submit">Seleccionar</Button>
+
+              </a>,
+                <a onClick={this.showDrawer} key={`a-${item.id}`} >
                   View Profile
-                </a>,
+                </a>
+               
               ]}
             >
               <List.Item.Meta
                 avatar={
-                  <Avatar src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
+                  <Avatar src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg" />
                 }
                 title={<a href="https://ant.design/index-cn">{item.name}</a>}
                 description="Progresser XTech"
