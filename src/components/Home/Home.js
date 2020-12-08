@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
-import { Rate, Card, Avatar, Drawer, List, Divider, Col, Row, Button,} from 'antd';
+import { Rate, Avatar, Drawer, List, Divider, Col, Row, Button,} from 'antd';
 // import {Select, TimePicker, DatePicker, Space } from 'antd';
-import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+//import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
-const { Meta } = Card;
+//const { Meta } = Card;
 // const { RangePicker } = TimePicker;
 // const { Option } = Select;
 
@@ -50,7 +50,7 @@ class Home extends Component {
                   <main class="content">
                    <landing class="landing">
                     <Content style={{ borderColor: 'red', margin: '0 16px',color:"black" }}>
-                      <h1>Listado de prestadores</h1>
+                      <h1>Elegí uno de nuestros representantes</h1>
                     </Content>
                    </landing>
                    {/* <searchbox class="searchbox">
@@ -69,11 +69,32 @@ class Home extends Component {
                    <List
           dataSource={[
             {
-              name: 'Lily',
+              name: 'Nicolas',
             },
             {
               name: 'Juan',
             },
+            {
+                name: 'Mía',
+              },
+              {
+                name: 'Javier',
+              },
+              {
+                name: 'Francisco',
+              },
+              {
+                name: 'Carlos',
+              },
+              {
+                name: 'Damian',
+              },
+              {
+                name: 'Alex',
+              },
+              {
+                name: 'Noelia',
+              },
           ]}
           bordered
           renderItem={item => (
@@ -81,11 +102,14 @@ class Home extends Component {
               key={item.id}
               actions={[
                 <a>
+                <Rate disabled defaultValue={4} />
+            </a>,
+                <a>
                 <Button type="primary" htmlType="submit">Seleccionar</Button>
 
               </a>,
                 <a onClick={this.showDrawer} key={`a-${item.id}`} >
-                  View Profile
+                  Ver perfil
                 </a>
                
               ]}
@@ -95,7 +119,7 @@ class Home extends Component {
                   <Avatar src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg" />
                 }
                 title={<a href="https://ant.design/index-cn">{item.name}</a>}
-                description="Progresser XTech"
+                description="Barbero profesional"
               />
             </List.Item>
           )}
@@ -108,64 +132,42 @@ class Home extends Component {
           visible={this.state.visible}
         >
           <p className="site-description-item-profile-p" style={{ marginBottom: 24 }}>
-            User Profile
+            Perfil
           </p>
           <p className="site-description-item-profile-p">Personal</p>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Full Name" content="Lily" />
+              <DescriptionItem title="Nombre" content="Nicolas" />
             </Col>
             <Col span={12}>
-              <DescriptionItem title="Account" content="AntDesign@example.com" />
+              <DescriptionItem title="e-Mail" content="AntDesign@example.com" />
             </Col>
           </Row>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="City" content="HangZhou" />
+              <DescriptionItem title="Ciudad" content="HangZhou" />
             </Col>
             <Col span={12}>
-              <DescriptionItem title="Country" content="China🇨🇳" />
+              <DescriptionItem title="Pais" content="China🇨🇳" />
             </Col>
           </Row>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Birthday" content="February 2,1900" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Website" content="-" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Message"
-                content="Make things as simple as possible but no simpler."
-              />
+              <DescriptionItem title="Fecha de nacimiento" content="February 2,1900" />
             </Col>
           </Row>
           <Divider />
           <p className="site-description-item-profile-p">Company</p>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Position" content="Programmer" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Responsibilities" content="Coding" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="Department" content="XTech" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Supervisor" content={<a>Lin</a>} />
+              <DescriptionItem title="Profesión" content="Barbero" />
             </Col>
           </Row>
           <Row>
             <Col span={24}>
               <DescriptionItem
                 title="Skills"
-                content="C / C + +, data structures, software engineering, operating systems, computer networks, databases, compiler theory, computer architecture, Microcomputer Principle and Interface Technology, Computer English, Java, ASP, etc."
+                content="Corte de cabello, corte, cuidado y tratamiento de barba"
               />
             </Col>
           </Row>
@@ -173,26 +175,14 @@ class Home extends Component {
           <p className="site-description-item-profile-p">Contacts</p>
           <Row>
             <Col span={12}>
-              <DescriptionItem title="Email" content="AntDesign@example.com" />
+              <DescriptionItem title="e-Mail" content="AntDesign@example.com" />
             </Col>
             <Col span={12}>
-              <DescriptionItem title="Phone Number" content="+86 181 0000 0000" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Github"
-                content={
-                  <a href="http://github.com/ant-design/ant-design/">
-                    github.com/ant-design/ant-design/
-                  </a>
-                }
-              />
+              <DescriptionItem title="Número de teléfono" content="+86 181 0000 0000" />
             </Col>
           </Row>
         </Drawer>
-        <Card
+        {/* <Card
     style={{ width: 300 }}
     cover={
       <img
@@ -253,7 +243,7 @@ class Home extends Component {
       description="Barbero semisenior"
     />
     <Rate disabled defaultValue={5} />
-  </Card>,
+  </Card>, */}
                    </results>
                   </main>
                 </div>  

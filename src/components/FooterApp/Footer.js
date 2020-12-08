@@ -14,7 +14,7 @@ class Footer extends React.Component {
         return(
             <div class="footer"style={{ color: 'white', height: 100, backgroundColor: '#4042cc', textAlign: 'center' }} >Go Beauty ©2020
                 <div class="social-container">
-                <h3>Siguenos en redes sociales</h3>
+                <h3>Seguinos en nuestras redes sociales</h3>
                 <a href="https://www.youtube.com/"
                 className="youtube social">
                 <FontAwesomeIcon icon={faYoutube} size="2x" />
