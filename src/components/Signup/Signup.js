@@ -1,18 +1,23 @@
-import React, { useState,Component } from 'react';
-import {
-  Form,
-  Input,
-  Tooltip,
-  Select,
-  Row,
-  Col,
-  Checkbox,
-  Button,
-  AutoComplete,
-} from 'antd';
-import { Layout, Breadcrumb } from 'antd';
+import React, { useState, Component } from 'react';
+import {  Upload, TimePicker, Radio, Layout, Form, Input, Select, Checkbox, Button, AutoComplete} from 'antd';
+import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+
+const normFile = e => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
+const { RangePicker } = TimePicker;
 
 const { Option } = Select;
+
+function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
 const AutoCompleteOption = AutoComplete.Option;
 
 const formItemLayout = {
@@ -66,6 +71,7 @@ const tailFormItemLayout = {
       </Select>
     </Form.Item>
   );
+ 
   const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
   const onWebsiteChange = (value) => {
@@ -82,7 +88,7 @@ const tailFormItemLayout = {
   }));
 
         return (
-          <Layout style={{ minHeight: '100vh' }}>
+          <Layout style={{ minHeight: '75vh' }}>
         <Layout className="site-layout"></Layout>
         
           <div class="singup">
@@ -96,7 +102,7 @@ const tailFormItemLayout = {
           }}
           scrollToFirstError
           > 
-        <h1>Por favor, complete los campos requeridos para registrarse como cliente</h1>
+        <h1>Completá tus datos para poder contratar los servicios de Go Beauty</h1>
 
         <Form.Item
         name="name"
@@ -104,30 +110,54 @@ const tailFormItemLayout = {
         rules={[
           {
             
-            message: 'The input is not valid name',
+            message: 'El nombre que ingresaste no es válido',
           },
           {
             required: true,
-            message: 'Please input your name',
+            message: 'Ingresá tu nombre',
           },
         ]}
       >
         <Input />
       </Form.Item>
+      
       <Form.Item
             name="lastname"
             label="Apellido"
             rules={[
               {
-                message: 'The input is not valid lastname',
+                
+                message: 'El apellido que ingresaste no es válido',
               },
               {
                 required: true,
-                message: 'Please input your lastname',
+                message: 'Ingresá tu apellido',
               },
             ]}
           >
             <Input />
+          </Form.Item>
+          <Form.Item
+            name="sex"
+            label="Sexo"
+            rules={[
+              {
+                
+                message: 'El apellido que ingresaste no es válido',
+              },
+              {
+                required: true,
+                message: 'Ingresá tu apellido',
+              },
+            ]}
+          >
+                  <Radio.Group buttonStyle="solid">
+      <Radio.Button value="a">Masculino</Radio.Button>
+      <Radio.Button value="b">Femenino</Radio.Button>
+
+    </Radio.Group>
+
+
           </Form.Item>
           <Form.Item
             name="email"
@@ -135,24 +165,11 @@ const tailFormItemLayout = {
             rules={[
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: 'El email que ingresaste no es válido',
               },
               {
                 required: true,
-                message: 'Please input your E-mail!',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="nickname"
-            label="Nombre de Usuario"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your nickname!',
-                whitespace: true,
+                message: 'Ingresá tu email',
               },
             ]}
           >
@@ -164,7 +181,7 @@ const tailFormItemLayout = {
             rules={[
               {
                 required: true,
-                message: 'Please input your password!',
+                message: 'Ingresá tu contraseña',
               },
             ]}
             hasFeedback
@@ -180,7 +197,7 @@ const tailFormItemLayout = {
             rules={[
               {
                 required: true,
-                message: 'Please confirm your password!',
+                message: 'confirmá tu contraseña',
               },
               ({ getFieldValue }) => ({
                 validator(rule, value) {
@@ -188,36 +205,41 @@ const tailFormItemLayout = {
                     return Promise.resolve();
                   }
     
-                  return Promise.reject('The two passwords that you entered do not match!');
+                  return Promise.reject('Las contraseñas no coinciden');
                 },
               }),
             ]}
           >
             <Input.Password />
-          </Form.Item>
-    
-          
-    
+            </Form.Item>         
+            <Form.Item label="Dirección">
+        <Input.Group compact>
           <Form.Item
-            name="residence"
-            label="Dirección"
-            rules={[
-              {       
-                required: true,
-                message: 'Please select your habitual residence!',
-              },
-            ]}
+            name={['address', 'city']}
+            noStyle
+            rules={[{ required: true, message: 'Ingresá tu Localidad' }]}
           >
-            <Input />
+            <Select placeholder="Localidad">
+              <Option value="Rosario">Rosario</Option>
+            </Select>
           </Form.Item>
-    
           <Form.Item
+            name={['address', 'street']}
+            noStyle
+            rules={[{ required: true, message: 'Ingresá tu calle y número' }]}
+          >
+            <Input style={{ width: '80%' }} placeholder="Calle y número" />
+            
+          </Form.Item>
+          </Input.Group>
+          </Form.Item>
+            <Form.Item
             name="phone"
             label="Teléfono"
             rules={[
               {
                 required: true,
-                message: 'Please input your phone number!',
+                message: 'Ingresá tu teléfono',
               },
             ]}
           >
@@ -227,15 +249,27 @@ const tailFormItemLayout = {
                 width: '100%',
               }}
             />
-          </Form.Item>
+            </Form.Item>
+            <Form.Item
+        name="upload"
+        label="Foto de perfil"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+        extra="Formatos aceptados: .jpg y .png"
+      >
+        <Upload name="logo" action="/upload.do" listType="picture">
+          <Button icon={<UploadOutlined />}>Seleccionar foto</Button>
+        </Upload>
+      </Form.Item>
+
   
-          <Form.Item
+            <Form.Item
             name="agreement"
             valuePropName="checked"
             rules={[
               {
                 validator: (_, value) =>
-                  value ? Promise.resolve() : Promise.reject('Should accept agreement'),
+                  value ? Promise.resolve() : Promise.reject('Para registrarse debe aceptar los términos y condiciones'),
               },
             ]}
             {...tailFormItemLayout}
@@ -251,7 +285,6 @@ const tailFormItemLayout = {
           </Form.Item>
         </Form>
         </div>
-        
         </Layout>
         );
     }

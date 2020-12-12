@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { Rate, Avatar, Drawer, List, Divider, Col, Row, Button,} from 'antd';
+import { Link } from 'react-router-dom';
 // import {Select, TimePicker, DatePicker, Space } from 'antd';
 //import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
@@ -105,7 +106,7 @@ class Home extends Component {
                 <Rate disabled defaultValue={4} />
             </a>,
                 <a>
-                <Button type="primary" htmlType="submit">Seleccionar</Button>
+                <Button type="primary" htmlType="submit"><Link to="/purchase">Seleccionar</Link></Button>
 
               </a>,
                 <a onClick={this.showDrawer} key={`a-${item.id}`} >
@@ -182,68 +183,6 @@ class Home extends Component {
             </Col>
           </Row>
         </Drawer>
-        {/* <Card
-    style={{ width: 300 }}
-    cover={
-      <img
-        alt="Barbero"
-        src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg"
-      />
-    }
-    actions={[
-        <Button type="primary">Seleccionar</Button>,
-        <Button>Ver perfil</Button>,
-    ]}
-  >
-    <Meta
-      avatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhe_WQzorfVFJOrUD-6efvTYZrm5JchNdeA&usqp=CAU" />}
-      title="Nico Delñoca"
-      description="Barbero junior"
-    />
-    <Rate disabled defaultValue={2} />
-  </Card>,
-  <Card
-    style={{ width: 300 }}
-    cover={
-      <img
-        alt="Barbero"
-        src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg"
-      />
-    }
-    actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]}
-  >
-    <Meta
-      avatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhe_WQzorfVFJOrUD-6efvTYZrm5JchNdeA&usqp=CAU" />}
-      title="Javier Laley"
-      description="Barbero senior"
-    />
-    <Rate disabled defaultValue={3} />
-  </Card>,
-  <Card
-    style={{ width: 300 }}
-    cover={
-      <img
-        alt="Barbero"
-        src="https://image.freepik.com/vector-gratis/hombre-barbero-mascota-corte-barberia_165162-68.jpg"
-      />
-    }
-    actions={[
-      <SettingOutlined key="setting" />,
-      <EditOutlined key="edit" />,
-      <EllipsisOutlined key="ellipsis" />,
-    ]}
-  >
-    <Meta
-      avatar={<Avatar src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZhe_WQzorfVFJOrUD-6efvTYZrm5JchNdeA&usqp=CAU" />}
-      title="Sergio Panqueque"
-      description="Barbero semisenior"
-    />
-    <Rate disabled defaultValue={5} />
-  </Card>, */}
                    </results>
                   </main>
                 </div>  

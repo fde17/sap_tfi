@@ -1,6 +1,17 @@
-import React, { useState, Component } from 'react';
-import {  Radio, Layout, Form, Input, Select, Checkbox, Button, AutoComplete} from 'antd';
+import React from 'react';
+import {  Upload, TimePicker, Radio, Layout, Form, Input, Select, Checkbox, Button, } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
+const normFile = e => {
+    console.log('Upload event:', e);
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
+
+const { RangePicker } = TimePicker;
 
 const { Option } = Select;
 
@@ -8,7 +19,8 @@ function handleChange(value) {
     console.log(`selected ${value}`);
   }
 
-const AutoCompleteOption = AutoComplete.Option;
+
+
 
 const formItemLayout = {
   labelCol: {
@@ -43,6 +55,7 @@ const tailFormItemLayout = {
 
 
       const SignupPartner = () => {
+          
   const [form] = Form.useForm();
 
   const onFinish = (values) => {
@@ -62,20 +75,9 @@ const tailFormItemLayout = {
     </Form.Item>
   );
  
-  const [autoCompleteResult, setAutoCompleteResult] = useState([]);
 
-  const onWebsiteChange = (value) => {
-    if (!value) {
-      setAutoCompleteResult([]);
-    } else {
-      setAutoCompleteResult(['.com', '.org', '.net'].map((domain) => `${value}${domain}`));
-    }
-  };
-
-  const websiteOptions = autoCompleteResult.map((website) => ({
-    label: website,
-    value: website,
-  }));
+  
+  
 
         return (
           <Layout style={{ minHeight: '75vh' }}>
@@ -133,11 +135,11 @@ const tailFormItemLayout = {
             rules={[
               {
                 
-                message: 'El apellido que ingresaste no es válido',
+                message: 'El sexo no es válido',
               },
               {
                 required: true,
-                message: 'Ingresá tu apellido',
+                message: 'Seleccioná tu sexo',
               },
             ]}
           >
@@ -203,27 +205,7 @@ const tailFormItemLayout = {
             <Input.Password />
             </Form.Item>
             
-            <Form.Item label="Dirección">
-        <Input.Group compact>
-          <Form.Item
-            name={['address', 'city']}
-            noStyle
-            rules={[{ required: true, message: 'Ingresá tu Localidad' }]}
-          >
-            <Select placeholder="Localidad">
-              <Option value="Rosario">Rosario</Option>
-            </Select>
-          </Form.Item>
-          <Form.Item
-            name={['address', 'street']}
-            noStyle
-            rules={[{ required: true, message: 'Ingresá tu calle y número' }]}
-          >
-            <Input style={{ width: '80%' }} placeholder="Calle y número" />
             
-          </Form.Item>
-          </Input.Group>
-          </Form.Item>
           <Form.Item
             name="zone"
             label="Zonas de trabajo"
@@ -327,8 +309,68 @@ const tailFormItemLayout = {
       </div>
     </Option>
   </Select>
+  <RangePicker></RangePicker>
            
             </Form.Item>
+            <Form.Item
+        name="tarifa"
+        label="Tarifa"
+        rules={[
+          {
+            
+            message: 'Ingresá una tarifa válida',
+          },
+          {
+            required: true,
+            message: 'Ingresá tu tarifa',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
+      <Form.Item
+            name="type"
+            label="Tipo de servicio"
+            rules={[
+              {
+                
+                message: 'El tipo de servicio no es válido',
+              },
+              {
+                required: true,
+                message: 'Seleccioná tu tipo de servicio',
+              },
+            ]}
+          >
+                  <Radio.Group buttonStyle="solid">
+      <Radio.Button value="a">Barbería</Radio.Button>
+      <Radio.Button value="b">Estética de manos</Radio.Button>
+
+    </Radio.Group>
+
+
+          </Form.Item>
+            <Form.Item label="Dirección">
+        <Input.Group compact>
+          <Form.Item
+            name={['address', 'city']}
+            noStyle
+            rules={[{ required: true, message: 'Ingresá tu Localidad' }]}
+          >
+            <Select placeholder="Localidad">
+              <Option value="Rosario">Rosario</Option>
+            </Select>
+          </Form.Item>
+          <Form.Item
+            name={['address', 'street']}
+            noStyle
+            rules={[{ required: true, message: 'Ingresá tu calle y número' }]}
+          >
+            <Input style={{ width: '80%' }} placeholder="Calle y número" />
+            
+          </Form.Item>
+          </Input.Group>
+          </Form.Item>
             <Form.Item
             name="phone"
             label="Teléfono"
@@ -347,21 +389,17 @@ const tailFormItemLayout = {
             />
             </Form.Item>
             <Form.Item
-        name="tarifa"
-        label="Tarifa"
-        rules={[
-          {
-            
-            message: 'Ingresá una tarifa válida',
-          },
-          {
-            required: true,
-            message: 'Ingresá tu tarifa',
-          },
-        ]}
+        name="upload"
+        label="Foto de perfil"
+        valuePropName="fileList"
+        getValueFromEvent={normFile}
+        extra="Formatos aceptados: .jpg y .png"
       >
-        <Input />
+        <Upload name="logo" action="/upload.do" listType="picture">
+          <Button icon={<UploadOutlined />}>Seleccionar foto</Button>
+        </Upload>
       </Form.Item>
+
   
             <Form.Item
             name="agreement"
@@ -369,18 +407,17 @@ const tailFormItemLayout = {
             rules={[
               {
                 validator: (_, value) =>
-                  value ? Promise.resolve() : Promise.reject('Should accept agreement'),
+                  value ? Promise.resolve() : Promise.reject('Para registrarse debe aceptar los términos y condiciones'),
               },
             ]}
             {...tailFormItemLayout}
           >
             <Checkbox>
-              No he leído, pero si acepto los <a href="">Términos y condiciones.</a>
+              No he leído, pero si acepto los <a href="https://www.argentina.gob.ar/terminos-y-condiciones">Términos y condiciones.</a>
             </Checkbox>
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
-            <Button type="primary" htmlType="submit">
-              Registrarse
+            <Button type="primary" htmlType="submit" ><Link to="/signupPartnerSuccess">Registrarse</Link>
             </Button>
           </Form.Item>
         </Form>
