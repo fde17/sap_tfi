@@ -1,15 +1,13 @@
-import React, { useState,Component } from 'react';
-import {
-  Form,
-  Input,
-  Select,
-  Checkbox,
-  Button,
-  AutoComplete,
-} from 'antd';
-import { Layout } from 'antd';
+import React, { useState, Component } from 'react';
+import {  Radio, Layout, Form, Input, Select, Checkbox, Button, AutoComplete} from 'antd';
+
 
 const { Option } = Select;
+
+function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
+
 const AutoCompleteOption = AutoComplete.Option;
 
 const formItemLayout = {
@@ -80,7 +78,7 @@ const tailFormItemLayout = {
   }));
 
         return (
-          <Layout style={{ minHeight: '100vh' }}>
+          <Layout style={{ minHeight: '75vh' }}>
         <Layout className="site-layout"></Layout>
         
           <div class="singup">
@@ -102,31 +100,54 @@ const tailFormItemLayout = {
         rules={[
           {
             
-            message: 'The input is not valid name',
+            message: 'El nombre que ingresaste no es válido',
           },
           {
             required: true,
-            message: 'Please input your name',
+            message: 'Ingresá tu nombre',
           },
         ]}
       >
         <Input />
       </Form.Item>
+      
       <Form.Item
             name="lastname"
             label="Apellido"
             rules={[
               {
                 
-                message: 'The input is not valid lastname',
+                message: 'El apellido que ingresaste no es válido',
               },
               {
                 required: true,
-                message: 'Please input your lastname',
+                message: 'Ingresá tu apellido',
               },
             ]}
           >
             <Input />
+          </Form.Item>
+          <Form.Item
+            name="sex"
+            label="Sexo"
+            rules={[
+              {
+                
+                message: 'El apellido que ingresaste no es válido',
+              },
+              {
+                required: true,
+                message: 'Ingresá tu apellido',
+              },
+            ]}
+          >
+                  <Radio.Group buttonStyle="solid">
+      <Radio.Button value="a">Masculino</Radio.Button>
+      <Radio.Button value="b">Femenino</Radio.Button>
+
+    </Radio.Group>
+
+
           </Form.Item>
           <Form.Item
             name="email"
@@ -134,24 +155,11 @@ const tailFormItemLayout = {
             rules={[
               {
                 type: 'email',
-                message: 'The input is not valid E-mail!',
+                message: 'El email que ingresaste no es válido',
               },
               {
                 required: true,
-                message: 'Please input your E-mail!',
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-          <Form.Item
-            name="nickname"
-            label="Nombre de Usuario"
-            rules={[
-              {
-                required: true,
-                message: 'Please input your nickname!',
-                whitespace: true,
+                message: 'Ingresá tu email',
               },
             ]}
           >
@@ -163,7 +171,7 @@ const tailFormItemLayout = {
             rules={[
               {
                 required: true,
-                message: 'Please input your password!',
+                message: 'Ingresá tu contraseña',
               },
             ]}
             hasFeedback
@@ -179,7 +187,7 @@ const tailFormItemLayout = {
             rules={[
               {
                 required: true,
-                message: 'Please confirm your password!',
+                message: 'confirmá tu contraseña',
               },
               ({ getFieldValue }) => ({
                 validator(rule, value) {
@@ -187,7 +195,7 @@ const tailFormItemLayout = {
                     return Promise.resolve();
                   }
     
-                  return Promise.reject('The two passwords that you entered do not match!');
+                  return Promise.reject('Las contraseñas no coinciden');
                 },
               }),
             ]}
@@ -200,40 +208,125 @@ const tailFormItemLayout = {
           <Form.Item
             name={['address', 'city']}
             noStyle
-            rules={[{ required: true, message: 'City is required' }]}
+            rules={[{ required: true, message: 'Ingresá tu Localidad' }]}
           >
             <Select placeholder="Localidad">
               <Option value="Rosario">Rosario</Option>
-              <Option value="CABA">CABA</Option>
             </Select>
           </Form.Item>
           <Form.Item
             name={['address', 'street']}
             noStyle
-            rules={[{ required: true, message: 'Street is required' }]}
+            rules={[{ required: true, message: 'Ingresá tu calle y número' }]}
           >
-            <Input style={{ width: '80%' }} placeholder="Calle" />
+            <Input style={{ width: '80%' }} placeholder="Calle y número" />
             
           </Form.Item>
           </Input.Group>
           </Form.Item>
           <Form.Item
             name="zone"
-            label="Zona de trabajo"
+            label="Zonas de trabajo"
             rules={[
               {
                 required: true,
-                message: 'Please input your zone!',
+                message: 'Ingresá al menos una zona',
               },
             ]}
           >
-             <Select placeholder="Zona">
-                <Option value="Centro">Centro</Option>
-                <Option value="Norte">Norte</Option>
-                <Option value="Sur">Sur</Option>
-                <Option value="Este">Este</Option>
-                <Option value="Oeste">Oeste</Option>
-            </Select>
+<Select
+    mode="multiple"
+    style={{ width: '100%' }}
+    placeholder="Seleccioná tus zonas"
+    onChange={handleChange}
+    optionLabelProp="label"
+  >
+    <Option value="centro" label="Centro">
+      <div className="demo-option-label-item">
+        Centro
+      </div>
+    </Option>
+    <Option value="norte" label="Norte">
+      <div className="demo-option-label-item">
+        Norte
+      </div>
+    </Option>
+    <Option value="oeste" label="Oeste">
+      <div className="demo-option-label-item">
+        Oeste
+      </div>
+    </Option>
+    <Option value="noroeste" label="Noroeste">
+      <div className="demo-option-label-item">
+        Noroeste
+      </div>
+    </Option>
+    <Option value="sur" label="Sur">
+      <div className="demo-option-label-item">
+        Sur
+      </div>
+    </Option>
+    <Option value="sudoeste" label="Sudoeste">
+      <div className="demo-option-label-item">
+        Sudoeste
+      </div>
+    </Option>
+  </Select>
+           
+            </Form.Item>
+            <Form.Item
+            name="availability"
+            label="Días y Horarios de Atención"
+            rules={[
+              {
+                required: true,
+                message: 'Ingresá al menos un día',
+              },
+            ]}
+          >
+<Select
+    mode="multiple"
+    style={{ width: '100%' }}
+    placeholder="Seleccioná tus días de atención"
+    onChange={handleChange}
+    optionLabelProp="label"
+  >
+    <Option value="lunes" label="Lunes">
+      <div className="demo-option-label-item">
+        Lunes
+      </div>
+    </Option>
+    <Option value="martes" label="Martes">
+      <div className="demo-option-label-item">
+        Martes
+      </div>
+    </Option>
+    <Option value="miercoles" label="Miércoles">
+      <div className="demo-option-label-item">
+        Miércoles
+      </div>
+    </Option>
+    <Option value="jueves" label="Jueves">
+      <div className="demo-option-label-item">
+        Jueves
+      </div>
+    </Option>
+    <Option value="viernes" label="Viernes">
+      <div className="demo-option-label-item">
+        Viernes
+      </div>
+    </Option>
+    <Option value="sabado" label="Sábado">
+      <div className="demo-option-label-item">
+        Sábado
+      </div>
+    </Option>
+        <Option value="domingo" label="Domingo">
+      <div className="demo-option-label-item">
+        Domingo
+      </div>
+    </Option>
+  </Select>
            
             </Form.Item>
             <Form.Item
@@ -242,7 +335,7 @@ const tailFormItemLayout = {
             rules={[
               {
                 required: true,
-                message: 'Please input your phone number!',
+                message: 'Ingresá tu teléfono',
               },
             ]}
           >
@@ -253,6 +346,22 @@ const tailFormItemLayout = {
               }}
             />
             </Form.Item>
+            <Form.Item
+        name="tarifa"
+        label="Tarifa"
+        rules={[
+          {
+            
+            message: 'Ingresá una tarifa válida',
+          },
+          {
+            required: true,
+            message: 'Ingresá tu tarifa',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
   
             <Form.Item
             name="agreement"

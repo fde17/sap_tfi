@@ -83,12 +83,12 @@ const layout = {
         onFinishFailed={onFinishFailed}
     >
         <Form.Item
-        label="Nombre de usuario"
-        name="username"
+        label="Email"
+        name="email"
         rules={[
             {
             required: true,
-            message: 'Ingresá tu nombre de usuario',
+            message: 'Ingresá tu email',
             },
         ]}
         >
