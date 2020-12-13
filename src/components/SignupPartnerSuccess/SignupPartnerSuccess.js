@@ -1,5 +1,6 @@
 import React from 'react';
 import { Layout, Result, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
     class SignupPartnerSuccess extends React.Component {
     state = {
@@ -23,9 +24,7 @@ import { Layout, Result, Button } from 'antd';
                     <main class="content">
                     <Result style={{ margin: 153, minHeight: '35vh' }} status="success" title="¡Te has dado de alta como prestador de Go Beauty!" subTitle="Necesitamos que confirmes la registración desde el correo que hemos enviado a tu casilla." 
                     extra={[
-      <Button type="primary" key="home">
-        Ir al menú principal
-      </Button>,
+      <Button type="primary" key="home"><Link to="/homePartner">Ir al menú principal</Link></Button>,
     ]}
   />
           
