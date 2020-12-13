@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Layout, Card, Avatar, DatePicker, Space, TimePicker  } from 'antd';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 
 const {Content} = Layout;
@@ -62,7 +63,7 @@ function onChangeTP(time, timeString) {
     <DatePicker onChange={onChange} />
   </Space>
   <TimePicker style={{ margin: '20px' }} onChange={onChangeTP} defaultOpenValue={moment('00:00:00', 'HH:mm:ss')} />
-  <Button type="primary">Contratar</Button>
+  <Button type="primary"><Link to="/PurchaseSuccess">Contratar</Link></Button>
   </div>                 
 
                     
